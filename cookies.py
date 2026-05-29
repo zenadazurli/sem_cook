@@ -1,9 +1,8 @@
 import subprocess
 import time
 import re
-import sys
 
-API_KEY = "bu_1OpKObzK0h2LcDQ-q6NJJUPhUjEy51oZ1AUngrbEDbY"
+API_KEY = "bu_0Jdyt448rCJtpAZGBl6u5xolw1GD19lb4-KVqASjWs4"
 EMAIL = "sandrominori50+ulugarecexisa@gmail.com"
 PASSWORD = "DDnmVV45!!"
 
@@ -50,7 +49,5 @@ for line in result.stdout.split('\n'):
         if match:
             user_id = match.group(1)
 
-print(f"\n========== RISULTATO ==========", flush=True)
-print(f"sesids: {sesids if sesids else '❌'}", flush=True)
-print(f"user_id: {user_id if user_id else '❌'}", flush=True)
-print("================================", flush=True)
+print(f"\nsesids: {sesids}")
+print(f"user_id: {user_id}")
