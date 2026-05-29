@@ -23,13 +23,7 @@ run_cmd("browser-use cloud connect")
 run_cmd("browser-use open https://www.easyhits4u.com/logon/")
 time.sleep(5)
 
-# Invece di eval, usiamo state per vedere l'URL
-print("📋 Stato pagina...", flush=True)
-run_cmd("browser-use state")
-time.sleep(2)
-
 # Clicca Sign In (indice 2)
-print("🔓 Clicco su Sign In...", flush=True)
 run_cmd("browser-use click 2")
 time.sleep(3)
 
@@ -46,16 +40,11 @@ time.sleep(1)
 run_cmd('browser-use keys "Enter"')
 time.sleep(20)
 
-# Invece di eval, usiamo state per vedere l'URL finale
-print("\n📋 Stato finale...", flush=True)
-run_cmd("browser-use state")
-time.sleep(2)
-
 # Cookie
 result = run_cmd("browser-use cookies get", capture=True)
 print(result.stdout, flush=True)
 
-# Estrai sesids e user_id
+# Estrai
 sesids = None
 user_id = None
 for line in result.stdout.split('\n'):
@@ -68,5 +57,7 @@ for line in result.stdout.split('\n'):
         if match:
             user_id = match.group(1)
 
-print(f"\nsesids: {sesids}")
-print(f"user_id: {user_id}")
+print(f"\n========== RISULTATO ==========", flush=True)
+print(f"sesids: {sesids if sesids else '❌'}", flush=True)
+print(f"user_id: {user_id if user_id else '❌'}", flush=True)
+print("=================================", flush=True)
