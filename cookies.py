@@ -22,6 +22,12 @@ run_cmd("browser-use cloud connect")
 run_cmd("browser-use open https://www.easyhits4u.com/logon/")
 time.sleep(5)
 
+# === CLICCA SU "Sign In" PER APRIRE IL MODALE ===
+print("🔓 Apro il modale di login...")
+run_cmd('browser-use click 2')  # Indice del pulsante Sign In
+time.sleep(2)
+
+# Ora compila i campi (sono visibili dopo il click)
 run_cmd('browser-use keys "Tab"')
 run_cmd(f'browser-use type "{EMAIL}"')
 time.sleep(1)
