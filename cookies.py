@@ -3,7 +3,7 @@ import time
 import re
 import sys
 
-API_KEY = "bu_JYnkD1Cb0tJocGEB1HIf4Gn_F-gYqih15YpQWRYyJpY"
+API_KEY = "bu_QsySx5jnnr6FLbDSCBW3MPBSuIiPcJ1fpUBEbL8siwQ"
 EMAIL = "sandrominori50+ulugarecexisa@gmail.com"
 PASSWORD = "DDnmVV45!!"
 
@@ -23,11 +23,9 @@ run_cmd("browser-use cloud connect")
 run_cmd("browser-use open https://www.easyhits4u.com/logon/")
 time.sleep(5)
 
-# Clicca Sign In (indice 2)
 run_cmd("browser-use click 2")
 time.sleep(3)
 
-# Compila form
 run_cmd('browser-use keys "Tab"')
 run_cmd(f'browser-use type "{EMAIL}"')
 time.sleep(1)
@@ -36,15 +34,12 @@ run_cmd('browser-use keys "Tab"')
 run_cmd(f'browser-use type "{PASSWORD}"')
 time.sleep(1)
 
-# Login
 run_cmd('browser-use keys "Enter"')
 time.sleep(20)
 
-# Cookie
 result = run_cmd("browser-use cookies get", capture=True)
 print(result.stdout, flush=True)
 
-# Estrai
 sesids = None
 user_id = None
 for line in result.stdout.split('\n'):
@@ -57,7 +52,5 @@ for line in result.stdout.split('\n'):
         if match:
             user_id = match.group(1)
 
-print(f"\n========== RISULTATO ==========", flush=True)
-print(f"sesids: {sesids if sesids else '❌'}", flush=True)
-print(f"user_id: {user_id if user_id else '❌'}", flush=True)
-print("=================================", flush=True)
+print(f"\nsesids: {sesids}")
+print(f"user_id: {user_id}")
