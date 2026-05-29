@@ -3,7 +3,7 @@ import time
 import re
 import sys
 
-API_KEY = "bu_4hCD9gekll9L5lygYfiWT-u3-ANEohIV9K1QJNS5D2c"
+API_KEY = "bu_JYnkD1Cb0tJocGEB1HIf4Gn_F-gYqih15YpQWRYyJpY"
 EMAIL = "sandrominori50+ulugarecexisa@gmail.com"
 PASSWORD = "DDnmVV45!!"
 
@@ -24,9 +24,14 @@ run_cmd("browser-use cloud connect")
 run_cmd("browser-use open https://www.easyhits4u.com/logon/")
 time.sleep(5)
 
-# Clicca su "Sign In"
+# Prima otteniamo lo stato per trovare l'indice corretto
+print("📋 Stato della pagina...", flush=True)
+run_cmd("browser-use state", capture=False)
+time.sleep(2)
+
+# Clicca su "Sign In" (usa l'indice che vedi nello state, di solito 2)
 print("🔓 Clicco su Sign In...", flush=True)
-run_cmd('browser-use click "Sign In"')
+run_cmd("browser-use click 2")
 time.sleep(3)
 
 # Compila form
