@@ -2,7 +2,7 @@ import subprocess
 import time
 import re
 
-API_KEY = "bu_0Jdyt448rCJtpAZGBl6u5xolw1GD19lb4-KVqASjWs4"
+API_KEY = "bu_MN6wlSbFKdRNKvxB349PKTYLjrHGjXGEt3DHrT91cD0"
 EMAIL = "sandrominori50+ulugarecexisa@gmail.com"
 PASSWORD = "DDnmVV45!!"
 
@@ -22,12 +22,12 @@ run_cmd("browser-use cloud connect")
 run_cmd("browser-use open https://www.easyhits4u.com/logon/")
 time.sleep(5)
 
-# === CLICCA SU "Sign In" PER APRIRE IL MODALE ===
+# === CLICCA SU "Sign In" ===
 print("🔓 Apro il modale di login...")
-run_cmd('browser-use click 2')  # Indice del pulsante Sign In
+run_cmd('browser-use click 2')
 time.sleep(2)
 
-# Ora compila i campi (sono visibili dopo il click)
+# Compila form
 run_cmd('browser-use keys "Tab"')
 run_cmd(f'browser-use type "{EMAIL}"')
 time.sleep(1)
@@ -42,7 +42,7 @@ time.sleep(10)
 result = run_cmd("browser-use cookies get", capture=True)
 print(result.stdout, flush=True)
 
-# Estrazione
+# Estrazione cookie
 sesids = None
 user_id = None
 for line in result.stdout.split('\n'):
